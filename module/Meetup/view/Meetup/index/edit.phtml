@@ -1,0 +1,24 @@
+<?php
+$form = $this->form; /* @var $form \Zend\Form\Form */
+?>
+    <h1>Modifier un meetup</h1>
+
+<?= $this->form()->openTag($form); ?>
+
+    <div class="form-group">
+        <?= $this->formRow($form->get('title')); ?>
+    </div>
+    <div class="form-group">
+        <?= $this->formRow($form->get('description')); ?>
+    </div>
+    <div class="form-group">
+        <?= $this->formRow($form->get('startDate')); ?>
+    </div>
+    <div class="form-group">
+        <?= $this->formRow($form->get('endDate')); ?>
+    </div>
+    <div class="form-group">
+        <?= $this->formInput($form->get('submit')) ?>
+    </div>
+
+<?= $this->form()->closeTag($form); ?>

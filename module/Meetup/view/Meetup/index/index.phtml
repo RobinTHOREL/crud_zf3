@@ -1,0 +1,34 @@
+<h1>Meetups</h1>
+
+<table class="table">
+    <thead class="thead-light">
+    <tr>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Date début</th>
+        <th>Date fin</th>
+        <th colspan="2" style="text-align: center;">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->Meetups as $Meetup): /* @var $Meetup \Meetup\Entity\Meetup */ ?>
+        <tr>
+            <td><?= $Meetup->getTitle() ?></td>
+            <td><?= $Meetup->getDescription() ?></td>
+            <td><?= date_format($Meetup->getStartDate(), 'd/m/Y') ?></td>
+            <td><?= date_format($Meetup->getEndDate(), 'd/m/Y') ?></td>
+            <td>
+                <form action="<?php echo $this->url('meetups/delete'); ?>" method="post">
+                    <input type="hidden" name="id" value="<?= $Meetup->getId(); ?>">
+                    <button class="btn btn-danger" type="submit">Supprimer</button>
+                </form>
+            </td>
+            <td>
+                <a class="btn btn-info" href="<?= $this->url('meetups/edit', ['id' => $Meetup->getId()]); ?>">Modifier</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+
+<a href="<?= $this->url('meetups/add'); ?>" class="btn btn-primary">Ajouter un meetup</a>
