@@ -71,6 +71,7 @@ return [
             'meetup/index/add' => __DIR__ . '/../view/Meetup/index/add.phtml',
             'meetup/index/edit' => __DIR__ . '/../view/Meetup/index/edit.phtml',
         ],
+        'display_exceptions' => true,
     ],
     'doctrine' => [
         'driver' => [

@@ -70,7 +70,7 @@ final class IndexController extends AbstractActionController
         $id = (string)$request->getPost('id');
 
         if (empty($id)) {
-            die("database delete error");
+            throw new \Exception('Une erreur est survenue');
         }
 
         $this->MeetupRepository->delete($id);
